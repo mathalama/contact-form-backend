@@ -1,6 +1,7 @@
+
 # Maven
 target/
-!.mvn/wrapper/maven-wrapper.jar
+.mvn/
 
 # IDE
 .idea/
@@ -27,6 +28,5 @@ logs/
 Thumbs.db
 
 # Environment
-.env
 .env.local
 .env.*.local

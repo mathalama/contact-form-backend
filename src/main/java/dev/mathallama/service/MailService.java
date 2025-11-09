@@ -4,6 +4,7 @@ import dev.mathallama.dto.ContactRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,7 @@ public class MailService {
         this.owner = owner;
     }
 
+    @Async
     public void sendAutoReply(String to, String name) {
         SimpleMailMessage m = new SimpleMailMessage();
         m.setFrom(owner);
@@ -34,6 +36,7 @@ public class MailService {
         mailSender.send(m);
     }
 
+    @Async
     public void notifyOwner(ContactRequest r) {
         SimpleMailMessage m = new SimpleMailMessage();
         m.setFrom(owner);
